@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.mapper.UserMapper" >
+
+    <resultMap id="BaseResultMap" type="com.demo.entity.User" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="user_no" property="userNo" jdbcType="VARCHAR" />
+        <result column="user_mobile" property="userMobile" jdbcType="VARCHAR" />
+        <result column="contact_mobile" property="contactMobile" jdbcType="VARCHAR" />
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+        <result column="open_id" property="openId" jdbcType="VARCHAR" />
+        <result column="unionid" property="unionid" jdbcType="VARCHAR" />
+        <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
+        <result column="payment_password" property="paymentPassword" jdbcType="VARCHAR" />
+        <result column="real_name" property="realName" jdbcType="VARCHAR" />
+        <result column="version" property="version" jdbcType="INTEGER" />
+        <result column="recommend_userid" property="recommendUserid" jdbcType="INTEGER" />
+        <result column="user_img" property="userImg" jdbcType="VARCHAR" />
+        <result column="wechat_name" property="wechatName" jdbcType="VARCHAR" />
+        <result column="wechat_img" property="wechatImg" jdbcType="VARCHAR" />
+        <result column="wechat_id_url" property="wechatIdUrl" jdbcType="VARCHAR" />
+        <result column="balance4" property="balance4" jdbcType="DECIMAL" />
+        <result column="balance3" property="balance3" jdbcType="DECIMAL" />
+        <result column="balance2" property="balance2" jdbcType="DECIMAL" />
+        <result column="balance1" property="balance1" jdbcType="DECIMAL" />
+        <result column="sex" property="sex" jdbcType="INTEGER" />
+        <result column="user_type" property="userType" jdbcType="INTEGER" />
+        <result column="user_level" property="userLevel" jdbcType="INTEGER" />
+        <result column="user_state" property="userState" jdbcType="INTEGER" />
+        <result column="province" property="province" jdbcType="VARCHAR" />
+        <result column="city" property="city" jdbcType="VARCHAR" />
+        <result column="is_bonus" property="isBonus" jdbcType="INTEGER" />
+        <result column="invitation_code" property="invitationCode" jdbcType="INTEGER" />
+        <result column="comment" property="comment" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+        <result column="locking_time" property="lockingTime" jdbcType="TIMESTAMP" />
+        <result column="salt" property="salt" jdbcType="VARCHAR" />
+        <result column="alipay" property="alipay" jdbcType="VARCHAR" />
+        <result column="wechat_id" property="wechatId" jdbcType="VARCHAR" />
+        <result column="php_openid" property="phpOpenid" jdbcType="VARCHAR" />
+        <result column="uniacid" property="uniacid" jdbcType="INTEGER" />
+        <result column="is_subscribe" property="isSubscribe" jdbcType="INTEGER" />
+        <result column="subordinate" property="subordinate" jdbcType="INTEGER" />
+        <result column="invitation_code_time" property="invitationCodeTime" jdbcType="TIMESTAMP" />
+        <result column="is_recommend" property="isRecommend" jdbcType="INTEGER" />
+        <result column="sig" property="sig" jdbcType="VARCHAR" />
+        <result column="sig_expiry_time" property="sigExpiryTime" jdbcType="TIMESTAMP" />
+        <result column="identifier" property="identifier" jdbcType="VARCHAR" />
+    </resultMap>
+
+
+    <sql id="Base_Column_List" >
+  id, name, user_no, user_mobile, contact_mobile, user_email, open_id, unionid, user_password,
+  payment_password, real_name, version, recommend_userid, user_img, wechat_name, wechat_img,
+  wechat_id_url, balance4, balance3, balance2, balance1, sex, user_type, user_level,
+  user_state, province, city, is_bonus, invitation_code, comment, create_time, modify_time,
+  locking_time, salt, alipay, wechat_id, php_openid, uniacid, is_subscribe, subordinate,
+  invitation_code_time, is_recommend, sig, sig_expiry_time, identifier
+</sql>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  delete from t_user
+  where id = #{id,jdbcType=INTEGER}
+</delete>
+
+
+    <insert id="insert" parameterType="com.demo.entity.User" >
+  insert into t_user (id, name, user_no,
+    user_mobile, contact_mobile, user_email,
+    open_id, unionid, user_password,
+    payment_password, real_name, version,
+    recommend_userid, user_img, wechat_name,
+    wechat_img, wechat_id_url, balance4,
+    balance3, balance2, balance1,
+    sex, user_type, user_level,
+    user_state, province, city,
+    is_bonus, invitation_code, comment,
+    create_time, modify_time, locking_time,
+    salt, alipay, wechat_id,
+    php_openid, uniacid, is_subscribe,
+    subordinate, invitation_code_time, is_recommend,
+    sig, sig_expiry_time, identifier
+    )
+  values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR},
+    #{userMobile,jdbcType=VARCHAR}, #{contactMobile,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR},
+    #{openId,jdbcType=VARCHAR}, #{unionid,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR},
+    #{paymentPassword,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER},
+    #{recommendUserid,jdbcType=INTEGER}, #{userImg,jdbcType=VARCHAR}, #{wechatName,jdbcType=VARCHAR},
+    #{wechatImg,jdbcType=VARCHAR}, #{wechatIdUrl,jdbcType=VARCHAR}, #{balance4,jdbcType=DECIMAL},
+    #{balance3,jdbcType=DECIMAL}, #{balance2,jdbcType=DECIMAL}, #{balance1,jdbcType=DECIMAL},
+    #{sex,jdbcType=INTEGER}, #{userType,jdbcType=INTEGER}, #{userLevel,jdbcType=INTEGER},
+    #{userState,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+    #{isBonus,jdbcType=INTEGER}, #{invitationCode,jdbcType=INTEGER}, #{comment,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}, #{lockingTime,jdbcType=TIMESTAMP},
+    #{salt,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{wechatId,jdbcType=VARCHAR},
+    #{phpOpenid,jdbcType=VARCHAR}, #{uniacid,jdbcType=INTEGER}, #{isSubscribe,jdbcType=INTEGER},
+    #{subordinate,jdbcType=INTEGER}, #{invitationCodeTime,jdbcType=TIMESTAMP}, #{isRecommend,jdbcType=INTEGER},
+    #{sig,jdbcType=VARCHAR}, #{sigExpiryTime,jdbcType=TIMESTAMP}, #{identifier,jdbcType=VARCHAR}
+    )
+</insert>
+
+
+    <insert id="insertSelective" parameterType="com.demo.entity.User" >
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="name != null" >
+                name,
+            </if>
+            <if test="userNo != null" >
+                user_no,
+            </if>
+            <if test="userMobile != null" >
+                user_mobile,
+            </if>
+            <if test="contactMobile != null" >
+                contact_mobile,
+            </if>
+            <if test="userEmail != null" >
+                user_email,
+            </if>
+            <if test="openId != null" >
+                open_id,
+            </if>
+            <if test="unionid != null" >
+                unionid,
+            </if>
+            <if test="userPassword != null" >
+                user_password,
+            </if>
+            <if test="paymentPassword != null" >
+                payment_password,
+            </if>
+            <if test="realName != null" >
+                real_name,
+            </if>
+            <if test="version != null" >
+                version,
+            </if>
+            <if test="recommendUserid != null" >
+                recommend_userid,
+            </if>
+            <if test="userImg != null" >
+                user_img,
+            </if>
+            <if test="wechatName != null" >
+                wechat_name,
+            </if>
+            <if test="wechatImg != null" >
+                wechat_img,
+            </if>
+            <if test="wechatIdUrl != null" >
+                wechat_id_url,
+            </if>
+            <if test="balance4 != null" >
+                balance4,
+            </if>
+            <if test="balance3 != null" >
+                balance3,
+            </if>
+            <if test="balance2 != null" >
+                balance2,
+            </if>
+            <if test="balance1 != null" >
+                balance1,
+            </if>
+            <if test="sex != null" >
+                sex,
+            </if>
+            <if test="userType != null" >
+                user_type,
+            </if>
+            <if test="userLevel != null" >
+                user_level,
+            </if>
+            <if test="userState != null" >
+                user_state,
+            </if>
+            <if test="province != null" >
+                province,
+            </if>
+            <if test="city != null" >
+                city,
+            </if>
+            <if test="isBonus != null" >
+                is_bonus,
+            </if>
+            <if test="invitationCode != null" >
+                invitation_code,
+            </if>
+            <if test="comment != null" >
+                comment,
+            </if>
+            <if test="createTime != null" >
+                create_time,
+            </if>
+            <if test="modifyTime != null" >
+                modify_time,
+            </if>
+            <if test="lockingTime != null" >
+                locking_time,
+            </if>
+            <if test="salt != null" >
+                salt,
+            </if>
+            <if test="alipay != null" >
+                alipay,
+            </if>
+            <if test="wechatId != null" >
+                wechat_id,
+            </if>
+            <if test="phpOpenid != null" >
+                php_openid,
+            </if>
+            <if test="uniacid != null" >
+                uniacid,
+            </if>
+            <if test="isSubscribe != null" >
+                is_subscribe,
+            </if>
+            <if test="subordinate != null" >
+                subordinate,
+            </if>
+            <if test="invitationCodeTime != null" >
+                invitation_code_time,
+            </if>
+            <if test="isRecommend != null" >
+                is_recommend,
+            </if>
+            <if test="sig != null" >
+                sig,
+            </if>
+            <if test="sigExpiryTime != null" >
+                sig_expiry_time,
+            </if>
+            <if test="identifier != null" >
+                identifier,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="userNo != null" >
+                #{userNo,jdbcType=VARCHAR},
+            </if>
+            <if test="userMobile != null" >
+                #{userMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="contactMobile != null" >
+                #{contactMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null" >
+                #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="openId != null" >
+                #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="unionid != null" >
+                #{unionid,jdbcType=VARCHAR},
+            </if>
+            <if test="userPassword != null" >
+                #{userPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentPassword != null" >
+                #{paymentPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null" >
+                #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null" >
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="recommendUserid != null" >
+                #{recommendUserid,jdbcType=INTEGER},
+            </if>
+            <if test="userImg != null" >
+                #{userImg,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatName != null" >
+                #{wechatName,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatImg != null" >
+                #{wechatImg,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatIdUrl != null" >
+                #{wechatIdUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="balance4 != null" >
+                #{balance4,jdbcType=DECIMAL},
+            </if>
+            <if test="balance3 != null" >
+                #{balance3,jdbcType=DECIMAL},
+            </if>
+            <if test="balance2 != null" >
+                #{balance2,jdbcType=DECIMAL},
+            </if>
+            <if test="balance1 != null" >
+                #{balance1,jdbcType=DECIMAL},
+            </if>
+            <if test="sex != null" >
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="userType != null" >
+                #{userType,jdbcType=INTEGER},
+            </if>
+            <if test="userLevel != null" >
+                #{userLevel,jdbcType=INTEGER},
+            </if>
+            <if test="userState != null" >
+                #{userState,jdbcType=INTEGER},
+            </if>
+            <if test="province != null" >
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null" >
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="isBonus != null" >
+                #{isBonus,jdbcType=INTEGER},
+            </if>
+            <if test="invitationCode != null" >
+                #{invitationCode,jdbcType=INTEGER},
+            </if>
+            <if test="comment != null" >
+                #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyTime != null" >
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lockingTime != null" >
+                #{lockingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="salt != null" >
+                #{salt,jdbcType=VARCHAR},
+            </if>
+            <if test="alipay != null" >
+                #{alipay,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatId != null" >
+                #{wechatId,jdbcType=VARCHAR},
+            </if>
+            <if test="phpOpenid != null" >
+                #{phpOpenid,jdbcType=VARCHAR},
+            </if>
+            <if test="uniacid != null" >
+                #{uniacid,jdbcType=INTEGER},
+            </if>
+            <if test="isSubscribe != null" >
+                #{isSubscribe,jdbcType=INTEGER},
+            </if>
+            <if test="subordinate != null" >
+                #{subordinate,jdbcType=INTEGER},
+            </if>
+            <if test="invitationCodeTime != null" >
+                #{invitationCodeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isRecommend != null" >
+                #{isRecommend,jdbcType=INTEGER},
+            </if>
+            <if test="sig != null" >
+                #{sig,jdbcType=VARCHAR},
+            </if>
+            <if test="sigExpiryTime != null" >
+                #{sigExpiryTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="identifier != null" >
+                #{identifier,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.User" >
+        update t_user
+        <set >
+            <if test="name != null" >
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="userNo != null" >
+                user_no = #{userNo,jdbcType=VARCHAR},
+            </if>
+            <if test="userMobile != null" >
+                user_mobile = #{userMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="contactMobile != null" >
+                contact_mobile = #{contactMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null" >
+                user_email = #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="openId != null" >
+                open_id = #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="unionid != null" >
+                unionid = #{unionid,jdbcType=VARCHAR},
+            </if>
+            <if test="userPassword != null" >
+                user_password = #{userPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="paymentPassword != null" >
+                payment_password = #{paymentPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null" >
+                real_name = #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="version != null" >
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="recommendUserid != null" >
+                recommend_userid = #{recommendUserid,jdbcType=INTEGER},
+            </if>
+            <if test="userImg != null" >
+                user_img = #{userImg,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatName != null" >
+                wechat_name = #{wechatName,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatImg != null" >
+                wechat_img = #{wechatImg,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatIdUrl != null" >
+                wechat_id_url = #{wechatIdUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="balance4 != null" >
+                balance4 = #{balance4,jdbcType=DECIMAL},
+            </if>
+            <if test="balance3 != null" >
+                balance3 = #{balance3,jdbcType=DECIMAL},
+            </if>
+            <if test="balance2 != null" >
+                balance2 = #{balance2,jdbcType=DECIMAL},
+            </if>
+            <if test="balance1 != null" >
+                balance1 = #{balance1,jdbcType=DECIMAL},
+            </if>
+            <if test="sex != null" >
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="userType != null" >
+                user_type = #{userType,jdbcType=INTEGER},
+            </if>
+            <if test="userLevel != null" >
+                user_level = #{userLevel,jdbcType=INTEGER},
+            </if>
+            <if test="userState != null" >
+                user_state = #{userState,jdbcType=INTEGER},
+            </if>
+            <if test="province != null" >
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null" >
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="isBonus != null" >
+                is_bonus = #{isBonus,jdbcType=INTEGER},
+            </if>
+            <if test="invitationCode != null" >
+                invitation_code = #{invitationCode,jdbcType=INTEGER},
+            </if>
+            <if test="comment != null" >
+                comment = #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyTime != null" >
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lockingTime != null" >
+                locking_time = #{lockingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="salt != null" >
+                salt = #{salt,jdbcType=VARCHAR},
+            </if>
+            <if test="alipay != null" >
+                alipay = #{alipay,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatId != null" >
+                wechat_id = #{wechatId,jdbcType=VARCHAR},
+            </if>
+            <if test="phpOpenid != null" >
+                php_openid = #{phpOpenid,jdbcType=VARCHAR},
+            </if>
+            <if test="uniacid != null" >
+                uniacid = #{uniacid,jdbcType=INTEGER},
+            </if>
+            <if test="isSubscribe != null" >
+                is_subscribe = #{isSubscribe,jdbcType=INTEGER},
+            </if>
+            <if test="subordinate != null" >
+                subordinate = #{subordinate,jdbcType=INTEGER},
+            </if>
+            <if test="invitationCodeTime != null" >
+                invitation_code_time = #{invitationCodeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isRecommend != null" >
+                is_recommend = #{isRecommend,jdbcType=INTEGER},
+            </if>
+            <if test="sig != null" >
+                sig = #{sig,jdbcType=VARCHAR},
+            </if>
+            <if test="sigExpiryTime != null" >
+                sig_expiry_time = #{sigExpiryTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="identifier != null" >
+                identifier = #{identifier,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+
+    <update id="updateByPrimaryKey" parameterType="com.demo.entity.User" >
+  update t_user
+  set name = #{name,jdbcType=VARCHAR},
+    user_no = #{userNo,jdbcType=VARCHAR},
+    user_mobile = #{userMobile,jdbcType=VARCHAR},
+    contact_mobile = #{contactMobile,jdbcType=VARCHAR},
+    user_email = #{userEmail,jdbcType=VARCHAR},
+    open_id = #{openId,jdbcType=VARCHAR},
+    unionid = #{unionid,jdbcType=VARCHAR},
+    user_password = #{userPassword,jdbcType=VARCHAR},
+    payment_password = #{paymentPassword,jdbcType=VARCHAR},
+    real_name = #{realName,jdbcType=VARCHAR},
+    version = #{version,jdbcType=INTEGER},
+    recommend_userid = #{recommendUserid,jdbcType=INTEGER},
+    user_img = #{userImg,jdbcType=VARCHAR},
+    wechat_name = #{wechatName,jdbcType=VARCHAR},
+    wechat_img = #{wechatImg,jdbcType=VARCHAR},
+    wechat_id_url = #{wechatIdUrl,jdbcType=VARCHAR},
+    balance4 = #{balance4,jdbcType=DECIMAL},
+    balance3 = #{balance3,jdbcType=DECIMAL},
+    balance2 = #{balance2,jdbcType=DECIMAL},
+    balance1 = #{balance1,jdbcType=DECIMAL},
+    sex = #{sex,jdbcType=INTEGER},
+    user_type = #{userType,jdbcType=INTEGER},
+    user_level = #{userLevel,jdbcType=INTEGER},
+    user_state = #{userState,jdbcType=INTEGER},
+    province = #{province,jdbcType=VARCHAR},
+    city = #{city,jdbcType=VARCHAR},
+    is_bonus = #{isBonus,jdbcType=INTEGER},
+    invitation_code = #{invitationCode,jdbcType=INTEGER},
+    comment = #{comment,jdbcType=VARCHAR},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+    locking_time = #{lockingTime,jdbcType=TIMESTAMP},
+    salt = #{salt,jdbcType=VARCHAR},
+    alipay = #{alipay,jdbcType=VARCHAR},
+    wechat_id = #{wechatId,jdbcType=VARCHAR},
+    php_openid = #{phpOpenid,jdbcType=VARCHAR},
+    uniacid = #{uniacid,jdbcType=INTEGER},
+    is_subscribe = #{isSubscribe,jdbcType=INTEGER},
+    subordinate = #{subordinate,jdbcType=INTEGER},
+    invitation_code_time = #{invitationCodeTime,jdbcType=TIMESTAMP},
+    is_recommend = #{isRecommend,jdbcType=INTEGER},
+    sig = #{sig,jdbcType=VARCHAR},
+    sig_expiry_time = #{sigExpiryTime,jdbcType=TIMESTAMP},
+    identifier = #{identifier,jdbcType=VARCHAR}
+  where id = #{id,jdbcType=INTEGER}
+</update>
+
+
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from  t_user
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+    <sql id="findPageWithWhere" >
+        <where> 1=1
+            <if test="id != null and id != '' " >
+                and id = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="name != null and name != '' " >
+                and name = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="userNo != null and userNo != '' " >
+                and user_no = #{userNo,jdbcType=VARCHAR}
+            </if>
+            <if test="userMobile != null and userMobile != '' " >
+                and user_mobile = #{userMobile,jdbcType=VARCHAR}
+            </if>
+            <if test="contactMobile != null and contactMobile != '' " >
+                and contact_mobile = #{contactMobile,jdbcType=VARCHAR}
+            </if>
+            <if test="userEmail != null and userEmail != '' " >
+                and user_email = #{userEmail,jdbcType=VARCHAR}
+            </if>
+            <if test="openId != null and openId != '' " >
+                and open_id = #{openId,jdbcType=VARCHAR}
+            </if>
+            <if test="unionid != null and unionid != '' " >
+                and unionid = #{unionid,jdbcType=VARCHAR}
+            </if>
+            <if test="userPassword != null and userPassword != '' " >
+                and user_password = #{userPassword,jdbcType=VARCHAR}
+            </if>
+            <if test="paymentPassword != null and paymentPassword != '' " >
+                and payment_password = #{paymentPassword,jdbcType=VARCHAR}
+            </if>
+            <if test="realName != null and realName != '' " >
+                and real_name = #{realName,jdbcType=VARCHAR}
+            </if>
+            <if test="version != null and version != '' " >
+                and version = #{version,jdbcType=INTEGER}
+            </if>
+            <if test="recommendUserid != null and recommendUserid != '' " >
+                and recommend_userid = #{recommendUserid,jdbcType=INTEGER}
+            </if>
+            <if test="userImg != null and userImg != '' " >
+                and user_img = #{userImg,jdbcType=VARCHAR}
+            </if>
+            <if test="wechatName != null and wechatName != '' " >
+                and wechat_name = #{wechatName,jdbcType=VARCHAR}
+            </if>
+            <if test="wechatImg != null and wechatImg != '' " >
+                and wechat_img = #{wechatImg,jdbcType=VARCHAR}
+            </if>
+            <if test="wechatIdUrl != null and wechatIdUrl != '' " >
+                and wechat_id_url = #{wechatIdUrl,jdbcType=VARCHAR}
+            </if>
+            <if test="balance4 != null and balance4 != '' " >
+                and balance4 = #{balance4,jdbcType=DECIMAL}
+            </if>
+            <if test="balance3 != null and balance3 != '' " >
+                and balance3 = #{balance3,jdbcType=DECIMAL}
+            </if>
+            <if test="balance2 != null and balance2 != '' " >
+                and balance2 = #{balance2,jdbcType=DECIMAL}
+            </if>
+            <if test="balance1 != null and balance1 != '' " >
+                and balance1 = #{balance1,jdbcType=DECIMAL}
+            </if>
+            <if test="sex != null and sex != '' " >
+                and sex = #{sex,jdbcType=INTEGER}
+            </if>
+            <if test="userType != null and userType != '' " >
+                and user_type = #{userType,jdbcType=INTEGER}
+            </if>
+            <if test="userLevel != null and userLevel != '' " >
+                and user_level = #{userLevel,jdbcType=INTEGER}
+            </if>
+            <if test="userState != null and userState != '' " >
+                and user_state = #{userState,jdbcType=INTEGER}
+            </if>
+            <if test="province != null and province != '' " >
+                and province = #{province,jdbcType=VARCHAR}
+            </if>
+            <if test="city != null and city != '' " >
+                and city = #{city,jdbcType=VARCHAR}
+            </if>
+            <if test="isBonus != null and isBonus != '' " >
+                and is_bonus = #{isBonus,jdbcType=INTEGER}
+            </if>
+            <if test="invitationCode != null and invitationCode != '' " >
+                and invitation_code = #{invitationCode,jdbcType=INTEGER}
+            </if>
+            <if test="comment != null and comment != '' " >
+                and comment = #{comment,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null and createTime != '' " >
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="modifyTime != null and modifyTime != '' " >
+                and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="lockingTime != null and lockingTime != '' " >
+                and locking_time = #{lockingTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="salt != null and salt != '' " >
+                and salt = #{salt,jdbcType=VARCHAR}
+            </if>
+            <if test="alipay != null and alipay != '' " >
+                and alipay = #{alipay,jdbcType=VARCHAR}
+            </if>
+            <if test="wechatId != null and wechatId != '' " >
+                and wechat_id = #{wechatId,jdbcType=VARCHAR}
+            </if>
+            <if test="phpOpenid != null and phpOpenid != '' " >
+                and php_openid = #{phpOpenid,jdbcType=VARCHAR}
+            </if>
+            <if test="uniacid != null and uniacid != '' " >
+                and uniacid = #{uniacid,jdbcType=INTEGER}
+            </if>
+            <if test="isSubscribe != null and isSubscribe != '' " >
+                and is_subscribe = #{isSubscribe,jdbcType=INTEGER}
+            </if>
+            <if test="subordinate != null and subordinate != '' " >
+                and subordinate = #{subordinate,jdbcType=INTEGER}
+            </if>
+            <if test="invitationCodeTime != null and invitationCodeTime != '' " >
+                and invitation_code_time = #{invitationCodeTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="isRecommend != null and isRecommend != '' " >
+                and is_recommend = #{isRecommend,jdbcType=INTEGER}
+            </if>
+            <if test="sig != null and sig != '' " >
+                and sig = #{sig,jdbcType=VARCHAR}
+            </if>
+            <if test="sigExpiryTime != null and sigExpiryTime != '' " >
+                and sig_expiry_time = #{sigExpiryTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="identifier != null and identifier != '' " >
+                and identifier = #{identifier,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+
+    <select id="findPageWithResult" parameterType="com.demo.dto.UserDTO" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from  t_user
+        <include refid="findPageWithWhere" />
+        limit #{start},#{pageSize}
+    </select>
+
+
+    <select id="findPageWithCount" parameterType="com.demo.dto.UserDTO" resultType="Integer" >
+        select count(1)
+        from t_user
+        <include refid="findPageWithWhere" />
+    </select>
+
+</mapper>

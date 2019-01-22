@@ -1,0 +1,39 @@
+spring:
+  #配置数据源
+  datasource:
+     type: com.alibaba.druid.pool.DruidDataSource
+     url: jdbc:mysql://192.168.6.138:3306/fudaopro?useUnicode=true&characterEncoding=utf8&useSSL=false
+     username: root
+     password: 123456
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     druid:
+       # 下面为连接池的补充设置，应用到上面所有数据源中
+       # 初始化大小，最小，最大
+       min-idle: 5
+       initial-size: 5
+       max-active: 5
+       # 配置获取连接等待超时的时间
+       max-wait: 60000
+       # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+       time-between-eviction-runs-millis: 60000
+       # 配置一个连接在池中最小生存的时间，单位是毫秒
+       min-evictable-idle-time-millis: 30000
+       validation-query: select 'x'
+       test-while-idle: true
+       test-on-borrow: false
+       test-on-return: false
+       # 打开PSCache，并且指定每个连接上PSCache的大小
+       pool-prepared-statements: true
+       max-open-prepared-statements: 20
+       # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+       filters:  stat,wall,log4j
+       # 合并多个DruidDataSource的监控数据
+       useGlobalDataSourceStat: true
+#        #p配置REDIS数据源
+#
+#
+#dubbo:
+#  registry:
+#    hostname:
+#          address: 39.104.80.206:2181
+#          port: 2185
